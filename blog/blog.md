@@ -63,18 +63,5 @@ For both algorithms we show the traces for $\tau_1, \,\bar \tau = \frac{1}{m}\su
 
 # Appendix
 ## A: Target density
-Let $\tau^\circ = (\tau_1^\circ, \tau_2^\circ,\dots,\tau_m^\circ)$ the removal times of the infected population. $I_t,S_t$ are respectively the number of infected and susceptible individuals at time $t$. The likelihood of the GSE model is given by 
-$$
-L(\tau \mid \gamma, \beta) = \prod_{\substack{i=1 \\ i\neq k}}^m \beta I_{\tau_i-} \exp(-\beta \int_{\tau_k}^T I_t S_t \mathrm{d}t) \prod_{i=1}^m \gamma \exp(-\gamma (\tau^\circ_i - \tau_i)).
-$$
-Let $\pi_\gamma$ and $\pi_\beta$ be the independent priors for $\gamma$ and $\beta$, the posterior for $(\tau, \gamma,\beta)$ is 
-$$
-\pi(\tau,\gamma, \beta) \propto L(\tau \mid \gamma, \beta)\pi_\beta(\beta)\pi_\gamma(\gamma)
-$$
-
-By setting  $\pi_\beta(\cdot) = \mathrm{Gam}(\nu_\beta, \lambda_\beta)$ and $pi_\gamma(\cdot) =\mathrm{Gam}(\nu_\gamma, \lambda_\gamma)$ and integrating out $\gamma, \beta$ we get 
-$$
-\pi(\tau) \propto (\prod_{\substack{i=1 \\ i\neq k}}^m I_{\tau_i-})(\lambda_\beta + A(\tau))^{-(m + \nu_\beta - 1)} (\lambda_\gamma + \sum_{i=1}^m (\tau_i^\circ - \tau_i))^{-(m + \nu_\gamma)}. 
-$$
-The first term create discontinuity with respect to the order of the vector $(\tau^\circ, \tau)$ of infection times and removal times.
+<img width="809" alt="image" src="https://github.com/SebaGraz/PDMPsBounds/assets/43820633/0bba0518-c2ec-4246-8ddc-89a337ef2178">
 
