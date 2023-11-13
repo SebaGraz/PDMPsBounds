@@ -5,15 +5,9 @@ This blog post is based on the manuscirpt [Methods and applications of PDMP samp
 ******
 *Abstract:* State-of-the-art Monte Carlo methods use the gradient of the log density to explore the space efficiently. These methods cannot generally be used when the density presents discontinuities as the gradient is not defined in those regions.  One exception is the class of Monte Carlo methods developed in [1] based on Piecewise-deterministic Markov processes (PDMP samplers). These samplers are continuous-time and  gradient-based  and are capable of targeting densities which are only piecewise smooth.  In this blog-post, we gloss over many technicalities presented in [1] in view of a gentle introduction and showcase of PDMP samplers for general stochastic epidemic (GSE) models. Similar principles may be applied to more general compartment models with latent state space.
 ## General stochastic epidemic (GSE) model
-Let  $\{Y(t) \in \{S, I, R\}^N, t\ge 0\}$ be a infection process in a population of size $N$. Each coordinate $Y_i(t)$ takes values
-$$
-y_i(t) = \begin{cases}
-    S & \text{if $i$ is susceptible at time $t$},\\
-    I & \text{if $i$ is infected at time $t$},\\
-    R & \text{if $i$ is removed at time $t$}.\\
-\end{cases}
-$$
-Each coordinate process $t \to Y_i(t)$ is allowed to change state in the following direction:  $S \to I \to R$. In particular the coordinate process changes its state from $S$ to $I$ according to an inhomogeneous Poisson process with rate $t \to \beta I_t$, where $\beta>0$ and $I_t = \sum_{i=1}^N {1}_{(Y_i(t) = I)}$ is the number of infected people in the population at time $t$. The time taken to transition from $I$ to $R$ is assumed to be an exponential r.v. with rate $\gamma>0$. 
+Let  $\\{Y(t) \in \\{S, I, R\\}^N, t\ge 0\\}$ be a infection process in a population of size $N$. Each coordinate $Y_i(t)$ takes values
+$y_i(t) = S$ if $i$ is susceptible at time $t$, $y_i(t) = I$ if $i$ is infected at time $t$, $y_i(t) = R$ if $i$ is removed at time $t$.
+Each coordinate process $t \to Y_i(t)$ is allowed to change state in the following direction:  $S \to I \to R$. In particular the coordinate process changes its state from $S$ to $I$ according to an inhomogeneous Poisson process with rate $t \to \beta I_t$, where $\beta>0$ and $I_t = \sum_{i=1} 1_{(Y_i(t) = I)}$ is the number of infected people in the population at time $t$. The time taken to transition from $I$ to $R$ is assumed to be an exponential r.v. with rate $\gamma>0$. 
 Let $I_\infty$, with $|I_\infty| \le N$, the set of indices of infected people before the last infected individual is removed. We assume that at time $0$, $\alpha$ individuals are infected and we observe the epidemic when it is extincted, that is, after the last infected individual has been removed. As it is common for this class of models, we assume we do not observe the infection times (i.e. when the coordinate process changes from $S \to I$) and we only  observe the time where individuals change their state from $I$ to $R$. We assume that $\gamma, \beta$ are unknown. These two parameters are fundamental as they jointly determine the reproduction number $R_0 := \beta N/\gamma$.
 
 We create syntetic data by forward-simulating the model and choosing $N = 200$, $\alpha = 1$, $\beta = 0.01$, $\gamma = 0.15$ ($R_0 = 4/3$). The figure below shows the (unobserved) number of infected individuals as a funciton of time. With these parameters, the epidemic ceases at time $T = 47$ and infected during its course $m = 71$ individuals. 
