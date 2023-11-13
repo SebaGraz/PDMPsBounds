@@ -18,7 +18,7 @@ Let $I_\infty$, with $|I_\infty| \le N$, the set of indices of infected people b
 
 We create syntetic data by forward-simulating the model and choosing $N = 200$, $\alpha = 1$, $\beta = 0.01$, $\gamma = 0.15$ ($R_0 = 4/3$). The figure below shows the (unobserved) number of infected individuals as a funciton of time. With these parameters, the epidemic ceases at time $T = 47$ and infected during its course $m = 71$ individuals. 
 
-![forward_gse.png](https://hackmd.io/_uploads/H103iWZXp.png)
+![forward_gse.png](./output/forward_gse.png)
 
 ## Monte Carlo Methods
 Denote the infection times $\tau = (\tau_1,\tau_2,\dots,\tau_m)$ of the infected population
