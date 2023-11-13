@@ -18,7 +18,7 @@ Let $I_\infty$, with $|I_\infty| \le N$, the set of indices of infected people b
 
 We create syntetic data by forward-simulating the model and choosing $N = 200$, $\alpha = 1$, $\beta = 0.01$, $\gamma = 0.15$ ($R_0 = 4/3$). The figure below shows the (unobserved) number of infected individuals as a funciton of time. With these parameters, the epidemic ceases at time $T = 47$ and infected during its course $m = 71$ individuals. 
 
-![forward_gse.png](./output/forward_gse.png)
+![forward_gse.png](output/forward_gse.png)
 
 ## Monte Carlo Methods
 Denote the infection times $\tau = (\tau_1,\tau_2,\dots,\tau_m)$ of the infected population
@@ -44,18 +44,17 @@ For the reasons outlined in the previous section, it is common to default to gra
 ## Results and comparisons
 Here we visually compare the performances a Randow Walk Metropolis algorithm with adaptive stepsize targeting the optimal acceptance rate 0.234 against Zig-Zag sampler. We run the former for 10^4 iteration and the latter for a time horizon T = 10^3. 
 
-For both algorithms we show the traces for $\tau_1, \,\bar \tau = \sum_{i=1}^m \tau_i,\, \gamma, \beta$.
+For both algorithms we show the traces for $\tau_1, \,\bar \tau = \frac{1}{m}\sum_{i=1}\tau_i,\, \gamma, \beta$.
 
-![tau1](https://hackmd.io/_uploads/Sy_cjOoXp.png)
-*image_caption*
+![tau1](output/tau1.png)
 
-![trace_taubar](https://hackmd.io/_uploads/SJcjCuiQa.png)
-
-
-![trace_beta](https://hackmd.io/_uploads/HyQn0djm6.png)
+![trace_taubar](output/trace_taubar.png)
 
 
-![trace_gamma](https://hackmd.io/_uploads/Bk1pCdj7a.png)
+![trace_beta](output/trace_beta.png)
+
+
+![trace_gamma](output/trace_gamma.png)
 
 
 ## Conclusions
